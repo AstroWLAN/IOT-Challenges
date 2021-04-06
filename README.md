@@ -1,4 +1,4 @@
-# Internet Of Things Final Project A.A. 2020/2021
+# Internet Of Things Challenges A.A. 2020/2021
 ## Team 👷🏻‍♂️ 
 | Personal Data | Username | Email |
 |---------------|----------|-------|
@@ -8,5 +8,5 @@
 ## Description 📚
 These are the challenges developed during the semester<br> 
 | Challenge | Description                                  | Link |
-|:---------:|----------------------------------------------|------|
-|1          |MQTT and CoAP traffic analysis using Wireshark|      |
+|:---------:|:----------------------------------------------:|:------:|
+|1          |MQTT and CoAP traffic analysis using Wireshark|  [Challenge I](https://github.com/AstroWLAN/IOT-Challenges/tree/main/Challenge%20I)    |
