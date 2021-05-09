@@ -1,6 +1,7 @@
 // Imports headers
 #include "Timer.h"
 #include "HC3Message.h"
+#include "printf.h"
 
 // Defines the timer periods following the specific requests (Hz)
 #define T0 (1000/1)
@@ -28,6 +29,10 @@ module HC3C @safe() {
 
 // Defines the app behaviour 
 implementation {
+	// Defines the LEDs for debug
+	bool LED1 = FALSE;
+	bool LED2 = FALSE;
+	bool LED3 = FALSE;
     
     // Variables
     message_t packet;
@@ -62,7 +67,7 @@ implementation {
     }
 
     // STOP_DONE : Event triggered by the radio stop
-    event void AMControl.stopDone() {
+    event void AMControl.stopDone(error_t error) {
     // Do nothing
     }
 
@@ -153,22 +158,51 @@ implementation {
             // Checks if the counter is a multiple of 10
             if ((message->counter) % 10 == 0) {
                 // Turns off all the LEDs
+                LED1 = FALSE;
+                LED2 = FALSE;
+                LED3 = FALSE;
                 call Leds.led0Off();
                 call Leds.led1Off();
-                call Leds.led2Off();        
+                call Leds.led2Off();      
             }
             else {
                 // Checks which mote has sent the message in order to toggle the relative LED
                 if (message->moteSenderID == 1) {
                     call Leds.led0Toggle();
+                    if(LED1 == FALSE)
+                    	LED1 = TRUE;
+                    else
+                    	LED1 = FALSE;
                 }
                 if (message->moteSenderID == 2) {
                     call Leds.led1Toggle();
+                    if(LED2 == FALSE)
+                    	LED2 = TRUE;
+                    else
+                    	LED2 = FALSE;
                 }
                 if (message->moteSenderID == 3) {
                     call Leds.led2Toggle();
+                    if(LED3 == FALSE)
+                    	LED3 = TRUE;
+                    else
+                    	LED3 = FALSE;
                 }
-            }      
+            }
+            // Prints for debug
+            if (TOS_NODE_ID == 2){
+            	printf("SENDER : %d\n",message->moteSenderID);
+            	printfflush();
+            	printf("Mote COUNTER : %d\n", counter);
+            	printfflush(); 
+            	printf("Message COUNTER : %d\n",message->counter);
+            	printfflush(); 
+            	printf("LEDs STATUS : %d%d%d\n",LED3,LED2,LED1);
+            	printfflush();      
+            	printf("---\n");
+            	printfflush();
+            	
+            }  
             return bufPtr;
         }
     }

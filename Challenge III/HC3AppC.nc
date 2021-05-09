@@ -4,6 +4,9 @@
 configuration HC3AppC {}
 implementation {
   components MainC, HC3C as App, LedsC;
+  // Printf
+  components PrintfC;
+  components SerialStartC;
   // Radio
   components new AMSenderC(AM_RADIO_COUNT_MSG);
   components new AMReceiverC(AM_RADIO_COUNT_MSG);
