@@ -9,6 +9,6 @@
 These are the challenges developed during the semester<br> 
 | Challenge | Description                                  | Link |
 |:---------:|:-----------------------------------------------------------:|:------:|
-|1          |MQTT and CoAP traffic analysis using Wireshark|  [Challenge I](https://github.com/AstroWLAN/IOT-Challenges/tree/main/Challenge%20I)    |
+|1          |MQTT and CoAP traffic: Wireshark|  [Challenge I](https://github.com/AstroWLAN/IOT-Challenges/tree/main/Challenge%20I)    |
 |2          |MQTT message filtering: Node-RED and ThingSpeak interaction|  [Challenge II](https://github.com/AstroWLAN/IOT-Challenges/tree/main/Challenge%20II)    |
 |3          |Sky motes simulation: TinyOS and Cooja|  [Challenge III](https://github.com/AstroWLAN/IOT-Challenges/tree/main/Challenge%20III)    |
